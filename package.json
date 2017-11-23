@@ -4,6 +4,14 @@
 	"private": true,
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
+		"watch": "rm -rf artifacts && yarn build:compile -w && yarn build:lint",
+		"build": "rm -rf artifacts && yarn build:compile && yarn build:lint",
+		"build:clean": "rm -rf artifacts",
+		"build:compile": "tsc",
+		"build:lint": "tslint -c tslint.json -p tsconfig.json -t stylish --fix --force \"src/**/*.ts\" \"src/**/*.tsx\"",
+		"build:lint:no-fix": "tslint -c tslint.json -p tsconfig.json -t stylish \"src/**/*.ts\" \"src/**/*.tsx\"",
+		"android": "react-native run-android",
+		"ios": "react-native run-ios",
 		"test": "jest"
 	},
 	"dependencies": {
@@ -11,10 +19,15 @@
 		"react-native": "0.50.3"
 	},
 	"devDependencies": {
+		"@types/react": "^16.0.25",
+		"@types/react-native": "^0.50.7",
 		"babel-jest": "21.2.0",
 		"babel-preset-react-native": "4.0.0",
 		"jest": "21.2.1",
-		"react-test-renderer": "16.0.0"
+		"react-test-renderer": "16.0.0",
+		"tslint": "^5.8.0",
+		"tslint-react": "^3.2.0",
+		"typescript": "^2.6.1"
 	},
 	"jest": {
 		"preset": "react-native"

@@ -1,0 +1,103 @@
+{
+    /*
+     * Possible values:
+     * - the name of a built-in config
+     * - a string that can be resolved as a module that exports the config object, e.g.:
+     *   - an npm package name
+     *   - an npm package name followed by the path to a file inside
+     *   - a relative path to a JSON file
+     */
+    "extends": ["tslint:recommended", "tslint-react"],
+    "rules": {
+        /*
+         * Any rules specified here will override those from the base config we are extending.
+         * Please keep the rules alphabetized!
+         */
+        
+        /* On arrow functions, require 1 argument to not have parens, but more than 1 argument to have parens */
+        "arrow-parens": [true, "ban-single-arg-parens"],
+        
+        /* Require curly braces */
+        "curly": true,
+        
+        /* Require interface names to not have an "I" prefix */
+        "interface-name": [true, "never-prefix"],
+        
+        /* Do not enforce alignment of multiline JSX element tags */
+        "jsx-alignment": false,
+        
+        /* Allow implicit boolean values in JSX */
+        "jsx-boolean-value": "never",
+        
+        /* Allow multiline JS in JSX (e.g. most of our map statements) */
+        "jsx-no-multiline-js": false,
+        
+        /* Allow multiline JSX without parens */
+        "jsx-wrap-multiline": false,
+        
+        /* Do not enforce a limit of classes per file */
+        "max-classes-per-file": [false],
+        
+        /* Do not require member access prefix (public/private/protected). TODO: Consider enabling */
+        "member-access": false,
+
+        /* Enforce the following member ordering */
+        "member-ordering": [
+            true, {
+                "order": [
+                    "public-static-field",
+                    "protected-static-field",
+                    "private-static-field",
+                    "public-instance-field",
+                    "protected-instance-field",
+                    "private-instance-field",
+                    "constructor",
+                    {
+                        "name": "public methods",
+                        "kinds": [
+                            "public-instance-method",
+                            "public-static-method"
+                        ]
+                    },
+                    {
+                        "name": "protected methods",
+                        "kinds": [
+                            "protected-instance-method",
+                            "protected-static-method"
+                        ]
+                    },
+                    {
+                        "name": "private methods",
+                        "kinds": [
+                            "private-instance-method",
+                            "private-static-method"
+                        ]
+                    }
+                ]
+            }
+        ],
+        
+        /* Do not require object literal keys to be alphabetized. TODO: Consider enabling */
+        "object-literal-sort-keys": false,
+        
+        /* Require single quotes in TS and double quotes in JSX, but allow the opposite to avoid escaping */
+        "quotemark": [true, "single", "avoid-escape", "jsx-double"],
+
+        /* Do not enforce having a default case in a switch. */
+        /* TODO: Check back and enable once it can detect an already-exhaustive switch */
+        "switch-default": false
+    },
+    "jsRules": {
+        /*
+         * Any rules specified here will override those from the base config we are extending.
+         */
+        "curly": true
+    },
+    "rulesDirectory": [
+        /*
+         * A list of relative or absolute paths to directories that contain custom rules.
+         * See the Custom Rules documentation below for more details.
+         */
+         "rules/"
+    ]
+}
