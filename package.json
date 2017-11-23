@@ -12,7 +12,7 @@
 		"build:lint:no-fix": "tslint -c tslint.json -p tsconfig.json -t stylish \"src/**/*.ts\" \"src/**/*.tsx\"",
 		"android": "react-native run-android",
 		"ios": "react-native run-ios",
-		"test": "jest"
+		"test": "jest --coverage"
 	},
 	"dependencies": {
 		"react": "16.0.0",
@@ -30,6 +30,17 @@
 		"typescript": "^2.6.1"
 	},
 	"jest": {
-		"preset": "react-native"
+		"preset": "react-native",
+		"testRegex": "artifacts/.+\\.(test|spec).js$",
+		"coverageDirectory": "coverage",
+		"coverageReporters": [
+		  "text-summary",
+		  "html"
+		],
+		"collectCoverageFrom": [
+		  "artifacts/**/*.js",
+		  "!artifacts/**/*.spec.js",
+		  "!artifacts/**/*.index.js"
+		]
 	}
 }
