@@ -54,3 +54,6 @@ buck-out/
 
 # TypeScript
 artifacts
+
+# Testing
+coverage
