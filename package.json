@@ -15,6 +15,7 @@
 		"test": "jest --coverage"
 	},
 	"dependencies": {
+		"immutable": "^3.8.2",
 		"react": "16.0.0",
 		"react-native": "0.50.3"
 	},
@@ -33,10 +34,10 @@
 	},
 	"jest": {
 		"preset": "react-native",
-		"testRegex": "artifacts/.+\\.(test|spec).js$",
+		"testRegex": "artifacts/__test__/.+\\.js$",
 		"coverageDirectory": "coverage",
 		"coverageReporters": [
-			"text-summary",
+			"text",
 			"html"
 		],
 		"collectCoverageFrom": [

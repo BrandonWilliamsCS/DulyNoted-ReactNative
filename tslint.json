@@ -16,6 +16,9 @@
         
         /* On arrow functions, require 1 argument to not have parens, but more than 1 argument to have parens */
         "arrow-parens": [true, "ban-single-arg-parens"],
+
+        /* Allow use of "//!!" comments. Unideal, but should be easily avoidable. */
+        "comment-format": [false],
         
         /* Require curly braces */
         "curly": true,
@@ -77,6 +80,9 @@
             }
         ],
         
+        /* Allow namespaces - just use sparingly. */
+        "no-namespace": false,
+
         /* Do not require object literal keys to be alphabetized. TODO: Consider enabling */
         "object-literal-sort-keys": false,
         
