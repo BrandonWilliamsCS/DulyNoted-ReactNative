@@ -1,13 +1,12 @@
+import { shallow } from 'enzyme';
 import React from 'react';
 import 'react-native';
 
 import App from '../src/App';
 
-// Note: test renderer must be required after react-native.
-import renderer from 'react-test-renderer';
-
 it('renders correctly', () => {
-  const tree = renderer.create(
+  const wrapper = shallow(
     <App />,
   );
+  expect(wrapper.length).toBe(1);
 });
